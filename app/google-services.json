@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "970770096027",
+    "project_id": "notificar-bb72a",
+    "storage_bucket": "notificar-bb72a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:970770096027:android:6c2d3df6a4071552f0cb3e",
+        "android_client_info": {
+          "package_name": "com.example.notificar"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOzenIEM_OKgDghmpsNjVqkySfHF3FsuM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

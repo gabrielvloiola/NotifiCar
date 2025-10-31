@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.notificar"
     xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- PERMISSÕES NECESSÁRIAS -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -11,12 +16,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
+
+        <!-- Tela de Cadastro -->
         <activity
             android:name=".RegisterActivity"
             android:exported="false" />
-        <activity
-            android:name=".HomeActivity"
-            android:exported="false" />
+
+        <!-- Tela Principal (Login) -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -24,10 +30,29 @@
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Tela de Home -->
+        <activity
+            android:name=".HomeActivity"
+            android:exported="false" />
+
+        <!-- Tela de Confirmação -->
+        <activity
+            android:name=".TelaConfirmacaoActivity"
+            android:exported="false" />
+
+        <!-- Tela de Redefinição de Senha -->
+        <activity
+            android:name=".RecuperarSenha_2"
+            android:exported="false" />
+
+        <activity
+            android:name=".RecuperarSenhaActivity"
+            android:exported="false" />
+
     </application>
 
 </manifest>

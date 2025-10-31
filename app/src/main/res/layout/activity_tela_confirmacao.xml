@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FAFAF5"
+    tools:context=".TelaConfirmacaoActivity">
+
+    <!-- LOGO NotifiCar -->
+    <ImageView
+        android:id="@+id/ivLogo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="Logo do NotifiCar"
+        android:src="@drawable/logo_sem_fundo"
+        android:scaleType="fitCenter"
+        app:layout_constraintWidth_percent="0.35"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Título -->
+    <TextView
+        android:id="@+id/tvContaCriada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Conta Criada."
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        app:layout_constraintTop_toBottomOf="@id/ivLogo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp" />
+
+    <!-- Caixa de mensagem -->
+    <LinearLayout
+        android:id="@+id/caixaMensagem"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="12dp"
+        android:background="#F6F6F8"
+        android:backgroundTint="#F2F2F2"
+        android:backgroundTintMode="src_in"
+        android:clipToOutline="true"
+        android:elevation="6dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvContaCriada">
+
+        <!-- Mensagem de sucesso -->
+        <TextView
+            android:id="@+id/tvMensagem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:lineSpacingExtra="2dp"
+            android:text="Sua conta foi criada com sucesso, prossiga para a página de login e insira seus dados."
+            android:textAlignment="center"
+            android:textColor="#333333"
+            android:textSize="14sp" />
+
+        <!-- TextView clicável para voltar ao login -->
+        <TextView
+            android:id="@+id/tvVoltarLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="8dp"
+            android:text="Voltar ao Login →"
+            android:textColor="#E53935"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

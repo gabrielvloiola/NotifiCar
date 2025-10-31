@@ -54,8 +54,9 @@ dependencies {
 
     testImplementation(libs.junit)
     testImplementation("com.google.truth:truth:1.1.3") // GARANTA QUE ESTA LINHA EXISTE
-    testImplementation("org.mockito.kotlin:mockito-kotlin:4.0.0")
-    testImplementation("org.mockito:mockito-inline:4.4.0")
+    testImplementation("org.mockito:mockito-core:5.12.0")
+    testImplementation("org.mockito.kotlin:mockito-kotlin:5.4.0")
+// A dependência 'mockito-inline' já não é necessária separadamente com 'mockito-core' >= 5
 
     // --- Testes de Instrumentação ---
     androidTestImplementation(libs.androidx.junit)

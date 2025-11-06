@@ -53,6 +53,27 @@
             android:name=".RecuperarSenhaActivity"
             android:exported="false" />
 
+        <activity
+            android:name=".RecuperarSenha_3"
+            android:exported="false" />
+
+        <activity
+            android:name=".TelaPrincipal"/>
+
+        <activity
+            android:name=".TelaSolicitacoesActivity" />
+
+        <activity
+            android:name=".TelaMeusCarros" />
+        <activity
+            android:name=".TelaPerfilActivity" />
+
+
+
+
+
+
+
     </application>
 
 </manifest>

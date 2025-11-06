@@ -7,4 +7,5 @@
     <color name="text_color">#000000</color>
     <color name="hint_color">#A9A9A9</color>
     <color name="background_beige">#F8F5F2</color>
+    <color name="gray_888">#888888</color>
 </resources>

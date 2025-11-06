@@ -57,7 +57,7 @@ class RecuperarSenhaActivity : AppCompatActivity() {
 
                     Log.d(TAG, "Envio bem-sucedido. Abrindo RecuperarSenha_2")
                     // Navega para a segunda tela
-                    val intent = Intent(this, RecuperarSenha_2::class.java)
+                    val intent = Intent(this, RecuperarSenha_3::class.java)
                     startActivity(intent)
                     // Se quiser permitir voltar à tela anterior, comente a linha abaixo.
                     finish()

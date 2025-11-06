@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.notificar"
-    xmlns:tools="http://schemas.android.com/tools">
-
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.notificar">
     <!-- PERMISSÕES NECESSÁRIAS -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -16,13 +15,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
-
-        <!-- Tela de Cadastro -->
+        <activity
+            android:name=".AdicionarCarroActivity"
+            android:exported="false" />
+        <activity
+            android:name=".OpcoesNotificacao"
+            android:exported="false" />
+        <activity
+            android:name=".CriarSolicitacoes"
+            android:exported="false" />
+        <activity
+            android:name=".CriarSolicitacaoActivity"
+            android:exported="false" /> <!-- Tela de Cadastro -->
         <activity
             android:name=".RegisterActivity"
-            android:exported="false" />
-
-        <!-- Tela Principal (Login) -->
+            android:exported="false" /> <!-- Tela Principal (Login) -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -30,50 +37,29 @@
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- Tela de Home -->
+        </activity> <!-- Tela de Home -->
         <activity
             android:name=".HomeActivity"
-            android:exported="false" />
-
-        <!-- Tela de Confirmação -->
+            android:exported="false" /> <!-- Tela de Confirmação -->
         <activity
             android:name=".TelaConfirmacaoActivity"
-            android:exported="false" />
-
-        <!-- Tela de Redefinição de Senha -->
+            android:exported="false" /> <!-- Tela de Redefinição de Senha -->
         <activity
             android:name=".RecuperarSenha_2"
             android:exported="false" />
-
         <activity
             android:name=".RecuperarSenhaActivity"
             android:exported="false" />
-
         <activity
             android:name=".RecuperarSenha_3"
             android:exported="false" />
-
-        <activity
-            android:name=".TelaPrincipal"/>
-
-        <activity
-            android:name=".TelaSolicitacoesActivity" />
-
-        <activity
-            android:name=".TelaMeusCarros" />
-        <activity
-            android:name=".TelaPerfilActivity" />
-
-
-
-
-
-
-
+        <activity android:name=".TelaPrincipal" />
+        <activity android:name=".TelaSolicitacoesActivity" />
+        <activity android:name=".TelaMeusCarros" />
+        <activity android:name=".TelaPerfilActivity" />
     </application>
 
 </manifest>

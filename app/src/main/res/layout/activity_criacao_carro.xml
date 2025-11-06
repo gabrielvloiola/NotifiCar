@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/background_beige"
+    tools:context=".criacao_carro">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Adicionar Novo Carro"
+        android:textSize="24sp"
+        android:textColor="@color/text_color"
+        android:layout_marginBottom="24dp"
+        android:fontFamily="@font/montserrat_bold"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Placa:"
+        android:textColor="@color/text_color"
+        android:fontFamily="@font/montserrat_regular"/>
+    <EditText
+        android:id="@+id/etPlacaCarro"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="ABC1D23"
+        android:inputType="textCapCharacters"
+        android:background="@drawable/edittext_background"
+        android:padding="8dp"
+        android:layout_marginTop="8dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Modelo:"
+        android:textColor="@color/text_color"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/montserrat_regular"/>
+    <EditText
+        android:id="@+id/etModeloCarro"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="Ex: Ford Ka"
+        android:inputType="textCapWords"
+        android:background="@drawable/edittext_background"
+        android:padding="8dp"
+        android:layout_marginTop="8dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cor:"
+        android:textColor="@color/text_color"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/montserrat_regular"/>
+    <EditText
+        android:id="@+id/etCorCarro"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="Ex: Preto"
+        android:inputType="textCapWords"
+        android:background="@drawable/edittext_background"
+        android:padding="8dp"
+        android:layout_marginTop="8dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Marca:"
+        android:textColor="@color/text_color"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/montserrat_regular"/>
+    <EditText
+        android:id="@+id/etMarcaCarro"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="Ex: Ford"
+        android:inputType="textCapWords"
+        android:background="@drawable/edittext_background"
+        android:padding="8dp"
+        android:layout_marginTop="8dp"/>
+
+    <Button
+        android:id="@+id/btnSalvarCarro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Salvar Carro"
+        android:textColor="@color/red_notificar"
+        android:background="?android:attr/selectableItemBackground"
+        android:textSize="18sp"
+        android:layout_marginTop="32dp"/>
+
+</LinearLayout>

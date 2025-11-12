@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFDF6"
+    android:padding="16dp"
+    tools:context=".SelecionarMotivoActivity">
+
+    <TextView
+        android:id="@+id/tvTituloMotivo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Notificar"
+        android:textColor="#000"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="24dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sugeridas"
+        android:textSize="18sp"
+        android:textColor="@color/text_color"
+        android:layout_marginBottom="8dp"/>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="2dp"
+        app:cardBackgroundColor="#F0F0F0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/motivo_vidro_aberto"
+                style="@style/MotivoNotificacao"
+                android:text="Vidro Aberto" />
+
+            <TextView
+                android:id="@+id/motivo_porta_aberta"
+                style="@style/MotivoNotificacao"
+                android:text="Porta Aberta" />
+
+            <TextView
+                android:id="@+id/motivo_farol_ligado"
+                style="@style/MotivoNotificacao"
+                android:text="Farol Ligado" />
+
+            <TextView
+                android:id="@+id/motivo_carro_bloqueando"
+                style="@style/MotivoNotificacao"
+                android:text="Carro me bloqueando" />
+
+            <TextView
+                android:id="@+id/motivo_local_improprio"
+                style="@style/MotivoNotificacao"
+                android:text="Local Impróprio" />
+
+            <TextView
+                android:id="@+id/motivo_fora_da_vaga"
+                style="@style/MotivoNotificacao"
+                android:text="Fora da Vaga"
+                android:paddingBottom="0dp"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

@@ -13,8 +13,8 @@ class AdicionarCarroActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var db: FirebaseFirestore
 
-    private var isEditMode = false // Para saber se estamos a editar ou a criar
-    private var placaOriginal: String? = null // Para saber qual documento atualizar
+    private var isEditMode = false
+    private var placaOriginal: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,7 +24,6 @@ class AdicionarCarroActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         db = FirebaseFirestore.getInstance()
 
-        // Verifica se a tela foi aberta em "Modo Edição"
         checkEditMode()
 
         binding.btnSalvarCarro.setOnClickListener {
@@ -32,31 +31,26 @@ class AdicionarCarroActivity : AppCompatActivity() {
         }
     }
 
-    // --- NOVA FUNÇÃO PARA VERIFICAR O MODO DE EDIÇÃO ---
     private fun checkEditMode() {
         if (intent.getBooleanExtra("IS_EDIT_MODE", false)) {
             isEditMode = true
 
-            // Pega os dados passados pelo Intent
             placaOriginal = intent.getStringExtra("CARRO_PLACA")
             val modelo = intent.getStringExtra("CARRO_MODELO")
             val cor = intent.getStringExtra("CARRO_COR")
             val marca = intent.getStringExtra("CARRO_MARCA")
 
-            // Atualiza a UI
             binding.etPlacaCarro.setText(placaOriginal)
             binding.etModeloCarro.setText(modelo)
             binding.etCorCarro.setText(cor)
             binding.etMarcaCarro.setText(marca)
 
-            // CRÍTICO: Não deixa o utilizador editar a placa (que é o ID)
-            binding.etPlacaCarro.isEnabled = false
-            binding.btnSalvarCarro.text = "Atualizar Carro" // Muda o texto do botão
+            binding.etPlacaCarro.isEnabled = false // Não deixa editar a placa (ID)
+            binding.btnSalvarCarro.text = "Atualizar Carro"
         }
     }
 
     private fun salvarCarro() {
-        // A lógica de obter os dados é a mesma
         val placa = binding.etPlacaCarro.text.toString().uppercase().trim()
         val modelo = binding.etModeloCarro.text.toString().trim()
         val cor = binding.etCorCarro.text.toString().trim()
@@ -73,6 +67,9 @@ class AdicionarCarroActivity : AppCompatActivity() {
             return
         }
 
+        // --- LÓGICA ATUALIZADA ---
+
+        // 1. Criar os dados do carro
         val carro = hashMapOf(
             "placa" to placa,
             "modelo" to modelo,
@@ -80,13 +77,26 @@ class AdicionarCarroActivity : AppCompatActivity() {
             "marca" to marca
         )
 
-        // Se estamos em modo edição, usamos a placa original.
-        // Se estamos em modo de criação, usamos a nova placa.
-        // Como a placa está desativada no modo edição, o 'placa' será o mesmo que 'placaOriginal'.
-        // O comando .set() irá ATUALIZAR (sobrescrever) o documento se o ID já existir.
-        db.collection("users").document(userId)
-            .collection("cars").document(placa) // A placa é o ID
-            .set(carro)
+        // 2. Criar os dados do índice
+        val indicePlaca = hashMapOf(
+            "ownerUserId" to userId
+        )
+
+        // Usamos um "batch" para garantir que ambas as operações (salvar o carro E salvar o índice)
+        // funcionam juntas ou falham juntas.
+        val batch = db.batch()
+
+        // Operação 1: Salvar o carro na sub-coleção do utilizador
+        val refCarro = db.collection("users").document(userId)
+            .collection("cars").document(placa)
+        batch.set(refCarro, carro)
+
+        // Operação 2: Salvar a placa no índice público
+        val refPlaca = db.collection("placas").document(placa)
+        batch.set(refPlaca, indicePlaca)
+
+        // Executa as duas operações
+        batch.commit()
             .addOnSuccessListener {
                 val successMessage = if (isEditMode) "Carro atualizado!" else "Carro adicionado!"
                 Toast.makeText(this, successMessage, Toast.LENGTH_SHORT).show()

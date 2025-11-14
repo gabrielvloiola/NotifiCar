@@ -1,5 +1,5 @@
 [versions]
-agp = "8.12.3"
+agp = "8.13.1"
 kotlin = "2.0.21"
 coreKtx = "1.17.0"
 junit = "4.13.2"
@@ -36,15 +36,14 @@ androidx-constraintlayout = { group = "androidx.constraintlayout", name = "const
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
-firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version = "32.3.1" }
+firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version = "33.2.0" }
 firebase-auth = { group = "com.google.firebase", name = "firebase-auth-ktx" }
-androidx-runtime = { group = "androidx.compose.runtime", name = "runtime", version.ref = "runtime" }
 firebase-firestore-ktx = { group = "com.google.firebase", name = "firebase-firestore-ktx", version.ref = "firebaseFirestoreKtx" }
 truth = { module = "com.google.truth:truth", version.ref = "truth" }
-
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" } # ✅ ADICIONADO
 google-gms-google-services = { id = "com.google.gms.google-services", version.ref = "googleGms" }

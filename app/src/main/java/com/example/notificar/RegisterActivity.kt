@@ -53,10 +53,10 @@ class RegisterActivity : AppCompatActivity() {
                             if (userId != null) {
                                 // 4. Salva dados adicionais no Firestore
                                 val userProfile = hashMapOf(
-                                    "name" to name,
+                                    "nome" to name,    // <-- MUDOU DE "name"
                                     "email" to email,
-                                    "phone" to phone,
-                                    "plate" to plate
+                                    "telefone" to phone, // <-- MUDOU DE "phone"
+                                    "placa" to plate   // <-- MUDOU DE "plate"
                                 )
                                 db.collection("users").document(userId)
                                     .set(userProfile)

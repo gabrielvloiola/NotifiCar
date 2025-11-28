@@ -23,6 +23,9 @@ class TelaPerfilActivity : AppCompatActivity() {
     private lateinit var tvNomeUsuario: TextView
     private lateinit var tvEditarPerfil: TextView
 
+    // --- MUDANÇA 1: Declarar a variável do botão Sair ---
+    private lateinit var btnSair: Button
+
     private lateinit var auth: FirebaseAuth
     private lateinit var db: FirebaseFirestore
     private lateinit var storage: FirebaseStorage
@@ -64,6 +67,9 @@ class TelaPerfilActivity : AppCompatActivity() {
         btnWhatsapp = findViewById(R.id.btnWhatsapp)
         tvNomeUsuario = findViewById(R.id.tvNomeUsuario)
         tvEditarPerfil = findViewById(R.id.tvEditarPerfil)
+
+        // --- MUDANÇA 2: Encontrar o botão no layout ---
+        btnSair = findViewById(R.id.btnSair)
     }
 
     private fun configurarClicks() {
@@ -78,6 +84,27 @@ class TelaPerfilActivity : AppCompatActivity() {
 
         btnEmail.setOnClickListener { enviarEmailSuporte() }
         btnWhatsapp.setOnClickListener { abrirWhatsAppSuporte() }
+
+        // --- MUDANÇA 3: Configurar o clique para sair ---
+        btnSair.setOnClickListener {
+            realizarLogout()
+        }
+    }
+
+    // --- MUDANÇA 4: Nova função para realizar o logout ---
+    private fun realizarLogout() {
+        // 1. Desconecta do Firebase
+        auth.signOut()
+
+        // 2. Prepara a ida para a tela de Login (MainActivity)
+        val intent = Intent(this, MainActivity::class.java)
+
+        // 3. Limpa a "pilha" de telas. Isso é importante para que,
+        // se o usuário clicar em "Voltar" no login, o app feche em vez de voltar ao perfil.
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+
+        startActivity(intent)
+        finish()
     }
 
     // -----------------------------------------------------
@@ -168,5 +195,3 @@ class TelaPerfilActivity : AppCompatActivity() {
         }
     }
 }
-
-

@@ -16,6 +16,7 @@ googleGms = "4.4.1"
 runtime = "1.9.2"
 firebaseFirestoreKtx = "26.0.1"
 truth = "1.4.5"
+preferenceKtx = "1.2.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -40,6 +41,7 @@ firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version =
 firebase-auth = { group = "com.google.firebase", name = "firebase-auth-ktx" }
 firebase-firestore-ktx = { group = "com.google.firebase", name = "firebase-firestore-ktx", version.ref = "firebaseFirestoreKtx" }
 truth = { module = "com.google.truth:truth", version.ref = "truth" }
+androidx-preference-ktx = { group = "androidx.preference", name = "preference-ktx", version.ref = "preferenceKtx" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

@@ -14,6 +14,18 @@ class MainActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private val validator = CredentialsValidator()
 
+    override fun onStart() {
+        super.onStart()
+        // Se currentUser não for nulo, o utilizador já está logado
+        val currentUser = FirebaseAuth.getInstance().currentUser
+        if (currentUser != null) {
+            // Vai direto para a TelaPrincipal
+            val intent = Intent(this, TelaPrincipal::class.java)
+            startActivity(intent)
+            finish() // Fecha a tela de login para não voltar com o botão "Voltar"
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

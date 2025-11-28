@@ -61,6 +61,7 @@ dependencies {
 
     // --- Glide (para imagens de perfil) ---
     implementation("com.github.bumptech.glide:glide:4.16.0")
+    implementation(libs.androidx.preference.ktx)
     kapt("com.github.bumptech.glide:compiler:4.16.0")
 
     // --- Gson (para salvar e ler depoimentos) ---
@@ -75,6 +76,22 @@ dependencies {
     // --- Testes de Instrumentação ---
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    implementation("org.osmdroid:osmdroid-android:6.1.18")
+    implementation("com.google.android.gms:play-services-location:21.2.0")
+    implementation("androidx.preference:preference-ktx:1.2.1")
+    // Para fazer pedidos à internet (Overpass API)
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
+
+    // Para processar JSON (ler a resposta)
+    implementation("com.google.code.gson:gson:2.10.1")
+
+    // Corrotinas (para não bloquear o app enquanto carrega)
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+
+    implementation("com.google.firebase:firebase-messaging-ktx")
+
+
 }
 
 

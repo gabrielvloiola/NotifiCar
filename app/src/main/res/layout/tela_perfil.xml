@@ -34,6 +34,8 @@
             android:gravity="center_vertical"
             android:layout_marginBottom="24dp">
 
+
+
             <ImageView
                 android:id="@+id/btnVoltar"
                 android:layout_width="24dp"
@@ -228,7 +230,16 @@
             android:textColor="#000"
             android:textAlignment="viewStart"
             android:paddingStart="16dp" />
-    </LinearLayout>
-</ScrollView>
+        <Button
+            android:id="@+id/btnSair"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="#FF0000"
+            android:text="Sair da Conta"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+
+    </LinearLayout> </ScrollView>
 
 

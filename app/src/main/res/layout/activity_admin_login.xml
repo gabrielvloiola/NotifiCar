@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_beige"
+    android:padding="16dp"
+    tools:context=".AdminLoginActivity">
+
+    <ImageView
+        android:id="@+id/ivBackAdmin"
+        android:layout_width="178dp"
+        android:layout_height="126dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/logo_notificar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/text_color" />
+
+    <TextView
+        android:id="@+id/tvAdminTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Acesso\nAdministrativo"
+        android:gravity="center"
+        android:textColor="@color/red_notificar"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivBackAdmin" />
+
+    <TextView
+        android:id="@+id/tvAdminSubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Área restrita para gestão do NotifiCar"
+        android:textColor="@color/text_color"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvAdminTitle" />
+
+    <EditText
+        android:id="@+id/etAdminUser"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/edittext_background"
+        android:hint="ID ou Email Administrativo"
+        android:padding="12dp"
+        android:inputType="textEmailAddress"
+        app:layout_constraintTop_toBottomOf="@id/tvAdminSubtitle" />
+
+    <EditText
+        android:id="@+id/etAdminPass"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/edittext_background"
+        android:hint="Senha Mestra"
+        android:padding="12dp"
+        android:inputType="textPassword"
+        app:layout_constraintTop_toBottomOf="@id/etAdminUser" />
+
+    <Button
+        android:id="@+id/btnAdminEnter"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="@color/red_notificar"
+        android:text="Acessar Painel"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/etAdminPass" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

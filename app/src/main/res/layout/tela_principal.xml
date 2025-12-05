@@ -28,20 +28,108 @@
 
             <ImageView
                 android:id="@+id/imgPerfil"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:src="@drawable/perfil"
+                android:scaleType="centerCrop"
+                android:background="@android:color/transparent"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:contentDescription="Perfil" />
         </RelativeLayout>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp"
+            app:strokeWidth="0dp"
+            app:cardBackgroundColor="#FFFFFF">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:id="@+id/layoutTextos"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/containerProgress"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent">
+
+                    <TextView
+                        android:id="@+id/tvOlaUsuario"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Carregando..."
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/tvNivelAtual"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Nível: ..."
+                        android:textSize="14sp"
+                        android:textColor="@android:color/holo_blue_dark"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/tvProximoNivelInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Faltam X pts para subir"
+                        android:textSize="12sp"
+                        android:textColor="@android:color/darker_gray"/>
+                </LinearLayout>
+
+                <FrameLayout
+                    android:id="@+id/containerProgress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent">
+
+                    <com.google.android.material.progressindicator.CircularProgressIndicator
+                        android:id="@+id/progressLevel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:trackColor="#E0E0E0"
+                        app:indicatorColor="@android:color/holo_blue_dark"
+                        app:indicatorSize="60dp"
+                        app:trackThickness="5dp"
+                        android:progress="0"
+                        android:max="100" />
+
+                    <TextView
+                        android:id="@+id/tvPontosCentro"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="0"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black" />
+                </FrameLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
 
         <GridLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:columnCount="2"
             android:rowCount="3"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:useDefaultMargins="true">
 
             <androidx.cardview.widget.CardView
@@ -116,6 +204,59 @@
             </androidx.cardview.widget.CardView>
 
         </GridLayout>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardAvisoAdmin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="16dp"
+            android:visibility="gone"
+            app:cardBackgroundColor="#FFF3CD"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp"
+            app:strokeColor="#FFC107"
+            app:strokeWidth="1dp"
+            tools:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@android:drawable/ic_dialog_alert"
+                        app:tint="#856404" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="Comunicado Oficial"
+                        android:textColor="#856404"
+                        android:textStyle="bold"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvTextoAvisoAdmin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Mensagem do administrador aparecerá aqui..."
+                    android:textColor="#533F03"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
     </LinearLayout>
 </ScrollView>

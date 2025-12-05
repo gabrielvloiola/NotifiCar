@@ -1,8 +1,8 @@
 package com.example.notificar
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.notificar.databinding.ActivityCriarSolicitacaoBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
@@ -14,6 +14,8 @@ class CriarSolicitacaoActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var db: FirebaseFirestore
 
+    // NOTA: Removemos o PontosManager. As Cloud Functions farão isso automaticamente.
+
     private var motivoSelecionado: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,16 +26,9 @@ class CriarSolicitacaoActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         db = FirebaseFirestore.getInstance()
 
-        // 1. Receber o motivo da tela anterior
-        motivoSelecionado = intent.getStringExtra("MOTIVO_SELECIONADO")
-        if (motivoSelecionado == null) {
-            motivoSelecionado = "Personalizada" // Um valor padrão
-        }
-
-        // 2. Mostrar o motivo na tela
+        motivoSelecionado = intent.getStringExtra("MOTIVO_SELECIONADO") ?: "Personalizada"
         binding.tvMotivoSelecionado.text = motivoSelecionado
 
-        // 3. Configurar o botão Enviar
         binding.btnEnviarSolicitacao.setOnClickListener {
             enviarSolicitacao()
         }
@@ -54,39 +49,38 @@ class CriarSolicitacaoActivity : AppCompatActivity() {
             return
         }
 
-        // 4. Encontrar o dono da placa no nosso índice "placas"
+        // Buscar dono da placa
         db.collection("placas").document(placaDestinatario)
             .get()
             .addOnSuccessListener { documentSnapshot ->
                 if (documentSnapshot.exists()) {
-                    // Placa encontrada!
                     val ownerUserId = documentSnapshot.getString("ownerUserId")
 
                     if (ownerUserId == remetenteUserId) {
-                        Toast.makeText(this, "Não pode enviar uma notificação para si mesmo.", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "Não pode notificar a si mesmo.", Toast.LENGTH_SHORT).show()
                         return@addOnSuccessListener
                     }
 
-                    // 5. Criar o documento na coleção "solicitacoes"
-                    criarDocumentoSolicitacao(
-                        remetenteUserId = remetenteUserId,
-                        ownerUserId = ownerUserId!!,
-                        placaDestinatario = placaDestinatario,
-                        observacao = observacao
-                    )
+                    if (ownerUserId != null) {
+                        criarDocumentoSolicitacao(
+                            remetenteUserId = remetenteUserId,
+                            ownerUserId = ownerUserId,
+                            placaDestinatario = placaDestinatario,
+                            observacao = observacao
+                        )
+                    }
                 } else {
-                    // Placa não encontrada
-                    Toast.makeText(this, "Placa não encontrada na nossa base de dados.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Placa não encontrada na base de dados.", Toast.LENGTH_SHORT).show()
                 }
             }
             .addOnFailureListener { e ->
-                Toast.makeText(this, "Erro ao procurar placa: ${e.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Erro ao buscar placa: ${e.message}", Toast.LENGTH_SHORT).show()
             }
     }
 
     private fun criarDocumentoSolicitacao(
         remetenteUserId: String,
-        ownerUserId: String,
+        ownerUserId: String, // Destinatário (Infrator)
         placaDestinatario: String,
         observacao: String
     ) {
@@ -94,17 +88,18 @@ class CriarSolicitacaoActivity : AppCompatActivity() {
             "motivo" to motivoSelecionado,
             "observacao" to observacao,
             "placa" to placaDestinatario,
-            "destinatarioUserId" to ownerUserId,        // ID do dono do carro (Destinatário)
-            "remetenteUserId" to remetenteUserId,  // ID de quem enviou (Remetente)
-            "timestamp" to FieldValue.serverTimestamp(), // Data e hora do envio
-            "status" to "recebida" // Para controlo futuro (ex: 'lida')
+            "destinatarioUserId" to ownerUserId,
+            "remetenteUserId" to remetenteUserId,
+            "timestamp" to FieldValue.serverTimestamp(),
+            "status" to "recebida"
         )
 
+        // Ao adicionar aqui, a Cloud Function "onCreate" dispara automaticamente
         db.collection("solicitacoes")
-            .add(solicitacao) // .add() cria um documento com ID aleatório
+            .add(solicitacao)
             .addOnSuccessListener {
-                Toast.makeText(this, "Notificação enviada com sucesso!", Toast.LENGTH_SHORT).show()
-                finish() // Fecha a tela de envio
+                Toast.makeText(this, "Notificação enviada! Pontos processados.", Toast.LENGTH_SHORT).show()
+                finish()
             }
             .addOnFailureListener { e ->
                 Toast.makeText(this, "Erro ao enviar: ${e.message}", Toast.LENGTH_SHORT).show()

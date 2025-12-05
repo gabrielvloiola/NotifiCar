@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_beige"
+    android:padding="16dp"
+    tools:context=".AdminNotificationActivity">
+
+    <ImageView
+        android:id="@+id/ivBack"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/voltar"
+        app:tint="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="Voltar" />
+
+    <TextView
+        android:id="@+id/tvTitleHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Aviso Global"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toEndOf="@id/ivBack"
+        app:layout_constraintTop_toTopOf="@id/ivBack"
+        app:layout_constraintBottom_toBottomOf="@id/ivBack"/>
+
+    <TextView
+        android:id="@+id/labelTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Título do Aviso"
+        android:textStyle="bold"
+        android:textColor="#333333"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivBack" />
+
+    <EditText
+        android:id="@+id/etNotifTitle"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/edittext_background"
+        android:hint="Ex: Manutenção, Atenção..."
+        android:padding="12dp"
+        android:textColor="#000000"
+        app:layout_constraintTop_toBottomOf="@id/labelTitle" />
+
+    <TextView
+        android:id="@+id/labelMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Mensagem para Todos"
+        android:textStyle="bold"
+        android:textColor="#333333"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etNotifTitle" />
+
+    <EditText
+        android:id="@+id/etNotifMessage"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/edittext_background"
+        android:hint="Digite o aviso que aparecerá na tela principal de todos..."
+        android:padding="12dp"
+        android:gravity="top|start"
+        android:inputType="textMultiLine"
+        android:textColor="#000000"
+        app:layout_constraintTop_toBottomOf="@id/labelMessage" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="24dp"
+        android:background="#FFF3CD"
+        android:padding="12dp"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toBottomOf="@id/etNotifMessage">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@android:drawable/ic_dialog_info"
+            app:tint="#856404" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Este aviso ficará fixado na tela principal dos usuários até que você o remova ou substitua."
+            android:textColor="#856404"
+            android:textSize="12sp"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnSendNotif"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#D32F2F"
+        android:text="FIXAR AVISO"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <Button
+        android:id="@+id/btnRemoveNotif"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="#757575"
+        android:text="REMOVER AVISO ATUAL"
+        android:textColor="@android:color/white"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@id/btnSendNotif" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

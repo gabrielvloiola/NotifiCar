@@ -18,90 +18,44 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NotifiCar"
         tools:targetApi="31">
-        <activity
-            android:name=".DepoimentosActivity"
-            android:exported="false" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".RegisterActivity"
-            android:exported="false" />
-        <activity
-            android:name=".RecuperarSenhaActivity"
-            android:exported="false" />
-        <activity
-            android:name=".RecuperarSenha_2"
-            android:exported="false" />
-        <activity
-            android:name=".RecuperarSenha_3"
-            android:exported="false" />
-        <activity
-            android:name=".TelaConfirmacaoActivity"
-            android:exported="false" />
-        <activity
-            android:name=".HomeActivity"
-            android:exported="false" />
-        <activity
-            android:name=".TelaPrincipal"
-            android:exported="false" />
-        <activity
-            android:name=".TelaPerfilActivity"
-            android:exported="false" />
-        <activity
-            android:name=".TelaMeusCarros"
-            android:exported="false" />
-        <activity
-            android:name=".AdicionarCarroActivity"
-            android:exported="false" />
-        <activity
-            android:name=".TelaSolicitacoesActivity"
-            android:exported="false" />
-        <activity
-            android:name=".SelecionarMotivoActivity"
-            android:exported="false" />
-        <activity
-            android:name=".CriarSolicitacaoActivity"
-            android:exported="false" />
-        <activity
-            android:name=".CriarSolicitacoes"
-            android:exported="false" />
-        <activity
-            android:name=".DepoimentosActivity"
-            android:exported="false" />
-        <activity
-            android:name=".EditarPerfilActivity"
-            android:exported="false" />
-        <activity
-            android:name=".AdminDashboardActivity"
-            android:exported="false" />
-        <activity
-            android:name=".AdminLoginActivity"
-            android:exported="false" />
-        <activity
-            android:name=".AdminDepoimentosActivity"
-            android:exported="false" />
-        <activity
-            android:name=".AdminUsersActivity"
-            android:exported="false" />
-        <activity
-            android:name=".AdminUsersAdapter"
-            android:exported="false" />
-        <activity
-            android:name=".AdminNotificationActivity"
-            android:exported="false" />
+
+        <activity android:name=".RegisterActivity" android:exported="false" />
+        <activity android:name=".RecuperarSenhaActivity" android:exported="false" />
+        <activity android:name=".RecuperarSenha_2" android:exported="false" />
+        <activity android:name=".RecuperarSenha_3" android:exported="false" />
+        <activity android:name=".TelaConfirmacaoActivity" android:exported="false" />
+
+        <activity android:name=".HomeActivity" android:exported="false" />
+        <activity android:name=".TelaPrincipal" android:exported="false" />
+        <activity android:name=".TelaPerfilActivity" android:exported="false" />
+        <activity android:name=".EditarPerfilActivity" android:exported="false" />
+        <activity android:name=".TelaMeusCarros" android:exported="false" />
+        <activity android:name=".AdicionarCarroActivity" android:exported="false" />
+
+        <activity android:name=".TelaSolicitacoesActivity" android:exported="false" />
+        <activity android:name=".SelecionarMotivoActivity" android:exported="false" />
+        <activity android:name=".CriarSolicitacaoActivity" android:exported="false" />
+        <activity android:name=".CriarSolicitacoes" android:exported="false" />
+        <activity android:name=".DepoimentosActivity" android:exported="false" />
+
         <activity android:name=".EstacionamentoActivity" android:exported="false" />
+
+        <activity android:name=".AdminDashboardActivity" android:exported="false" />
+        <activity android:name=".AdminLoginActivity" android:exported="false" />
+        <activity android:name=".AdministradoresDepoimentosActivity" android:exported="false" />
+        <activity android:name=".AdminUsersActivity" android:exported="false" />
+        <activity android:name=".AdminNotificationActivity" android:exported="false" />
         <activity
-            android:name=".EstacionamentoAdapter"
-            android:exported="false" />
-        <activity
-            android:name=".Estacionamento"
+            android:name=".IncidentesActivity"
             android:exported="false" />
         <service
             android:name=".MyFirebaseMessagingService"

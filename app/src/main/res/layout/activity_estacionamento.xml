@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFDF6"
+    tools:context=".EstacionamentoActivity">
+
+    <RelativeLayout
+        android:id="@+id/header_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/imgLogoHeader"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:src="@drawable/logo_notificar02"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:contentDescription="Logo" />
+
+        <ImageView
+            android:id="@+id/imgPerfilHeader"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/perfil"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:contentDescription="Perfil" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/header_secondary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/header_top"
+        android:paddingHorizontal="16dp"
+        android:paddingBottom="16dp">
+
+        <ImageView
+            android:id="@+id/imgVoltar"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/voltar"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:contentDescription="Voltar" />
+
+        <TextView
+            android:id="@+id/tvTituloEstacionamento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Estacionamento"
+            android:textColor="#000"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_centerInParent="true" />
+
+        <ImageView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/ic_estacionamento"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            app:tint="@color/black"
+            android:contentDescription="Ícone Estacionamento" />
+    </RelativeLayout>
+
+    <org.osmdroid.views.MapView
+        android:id="@+id/mapView"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_below="@id/header_secondary"
+        android:layout_marginHorizontal="16dp"
+        android:background="#E0E0E0" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewEstacionamentos"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/mapView"
+        android:padding="16dp"
+        tools:listitem="@layout/item_estacionamento"/>
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/btnEstacioneiAqui"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="24dp"
+        android:backgroundTint="@color/red_notificar"
+        android:textColor="@color/white"
+        android:text="Estacionei Aqui"
+        app:icon="@drawable/ic_carro"
+        app:iconTint="@color/white" />
+</RelativeLayout>

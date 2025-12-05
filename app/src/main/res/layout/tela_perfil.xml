@@ -11,7 +11,6 @@
         android:orientation="vertical"
         android:padding="24dp">
 
-        <!-- Logo -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -26,15 +25,12 @@
                 android:src="@drawable/logo_notificar02" />
         </LinearLayout>
 
-        <!-- Cabeçalho com voltar -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_vertical"
             android:layout_marginBottom="24dp">
-
-
 
             <ImageView
                 android:id="@+id/btnVoltar"
@@ -61,7 +57,6 @@
                 android:layout_marginStart="8dp" />
         </LinearLayout>
 
-        <!-- Perfil -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -88,7 +83,7 @@
                     android:id="@+id/tvNomeUsuario"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=""
+                    android:text="Carregando..."
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:textColor="#000" />
@@ -111,15 +106,17 @@
                 android:gravity="end|center_vertical">
 
                 <ImageView
+                    android:id="@+id/imgIconeRanking"
                     android:layout_width="32dp"
                     android:layout_height="32dp"
                     android:src="@drawable/estrela"
                     android:contentDescription="Estrela Conta Ouro" />
 
                 <TextView
+                    android:id="@+id/tvTipoConta"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Conta Ouro"
+                    android:text="Calculando..."
                     android:textSize="12sp"
                     android:textColor="#000"
                     android:gravity="center" />
@@ -127,9 +124,10 @@
         </LinearLayout>
 
         <TextView
+            android:id="@+id/tvPontuacao"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="777 pontos"
+            android:text="0 pontos"
             android:textStyle="bold"
             android:textSize="28sp"
             android:textColor="#000"
@@ -141,7 +139,6 @@
             android:background="#000"
             android:layout_marginVertical="16dp" />
 
-        <!-- Opções -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -159,16 +156,11 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Resgatar pontos"
+                android:text="Fique sem incidentes e ganhe pontos!"
                 android:textColor="#000"
                 android:layout_marginStart="8dp"
                 android:textSize="16sp" />
 
-            <ImageView
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:src="@drawable/proximo"
-                android:contentDescription="Próxima tela" />
         </LinearLayout>
 
         <LinearLayout
@@ -185,9 +177,10 @@
                 android:contentDescription="Ícone Troféu" />
 
             <TextView
+                android:id="@+id/tvStatusIncidentes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Você está a 2 meses sem incidentes reportados."
+                android:text="Verificando histórico..."
                 android:textColor="#000"
                 android:layout_marginStart="8dp"
                 android:textSize="15sp" />
@@ -230,6 +223,7 @@
             android:textColor="#000"
             android:textAlignment="viewStart"
             android:paddingStart="16dp" />
+
         <Button
             android:id="@+id/btnSair"
             android:layout_width="match_parent"
@@ -240,6 +234,5 @@
             android:textColor="#FFFFFF"
             android:textStyle="bold" />
 
-    </LinearLayout> </ScrollView>
-
-
+    </LinearLayout>
+</ScrollView>
